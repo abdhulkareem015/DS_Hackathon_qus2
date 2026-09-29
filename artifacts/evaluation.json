@@ -1,0 +1,271 @@
+{
+  "status": "complete",
+  "mode": "forecast",
+  "target": "Downtime hours in the next observation period",
+  "split": "Chronological holdout: targets before 2025-10-20 train; on/after test. Identical target dates stay together.",
+  "train_n": 8684,
+  "test_n": 2182,
+  "train": {
+    "mae": 0.6564929414595179,
+    "rmse": 0.8495199907766959,
+    "r2": 0.5389783391826277
+  },
+  "test": {
+    "mae": 0.7255459646863299,
+    "rmse": 0.9432057640136479,
+    "r2": 0.5913524408611881
+  },
+  "baseline": {
+    "mae": 1.1305691641465008,
+    "rmse": 1.49908707872046,
+    "r2": -0.03226152077648625
+  },
+  "features": [
+    "Machine_Category",
+    "previous_Downtime_Hours",
+    "previous_Production_Volume",
+    "previous_Failure_Count",
+    "historical_events",
+    "days_since_maintenance"
+  ],
+  "importance": [
+    {
+      "feature": "Machine_Category",
+      "mae_increase": 0.0,
+      "std": 0.0
+    },
+    {
+      "feature": "previous_Downtime_Hours",
+      "mae_increase": 0.5554336192950793,
+      "std": 0.008368494564771902
+    },
+    {
+      "feature": "previous_Production_Volume",
+      "mae_increase": 0.0,
+      "std": 0.0
+    },
+    {
+      "feature": "previous_Failure_Count",
+      "mae_increase": 0.0,
+      "std": 0.0
+    },
+    {
+      "feature": "historical_events",
+      "mae_increase": 0.08905726276056625,
+      "std": 0.005558217305588614
+    },
+    {
+      "feature": "days_since_maintenance",
+      "mae_increase": 0.008666217850649627,
+      "std": 0.001234289232482034
+    }
+  ],
+  "tree": "|--- numeric__previous_Downtime_Hours <= 2.78\n|   |--- numeric__previous_Downtime_Hours <= 1.75\n|   |   |--- numeric__previous_Downtime_Hours <= 1.14\n|   |   |   |--- numeric__previous_Downtime_Hours <= 0.89\n|   |   |   |   |--- value: [1.09]\n|   |   |   |--- numeric__previous_Downtime_Hours >  0.89\n|   |   |   |   |--- value: [1.36]\n|   |   |--- numeric__previous_Downtime_Hours >  1.14\n|   |   |   |--- numeric__days_since_maintenance <= 55.50\n|   |   |   |   |--- value: [1.59]\n|   |   |   |--- numeric__days_since_maintenance >  55.50\n|   |   |   |   |--- value: [1.84]\n|   |--- numeric__previous_Downtime_Hours >  1.75\n|   |   |--- numeric__historical_events <= 4.50\n|   |   |   |--- numeric__previous_Downtime_Hours <= 2.27\n|   |   |   |   |--- value: [1.99]\n|   |   |   |--- numeric__previous_Downtime_Hours >  2.27\n|   |   |   |   |--- value: [2.27]\n|   |   |--- numeric__historical_events >  4.50\n|   |   |   |--- value: [3.38]\n|--- numeric__previous_Downtime_Hours >  2.78\n|   |--- numeric__historical_events <= 4.50\n|   |   |--- numeric__previous_Downtime_Hours <= 4.08\n|   |   |   |--- numeric__days_since_maintenance <= 22.50\n|   |   |   |   |--- value: [3.08]\n|   |   |   |--- numeric__days_since_maintenance >  22.50\n|   |   |   |   |--- value: [2.62]\n|   |   |--- numeric__previous_Downtime_Hours >  4.08\n|   |   |   |--- numeric__previous_Downtime_Hours <= 4.90\n|   |   |   |   |--- value: [3.45]\n|   |   |   |--- numeric__previous_Downtime_Hours >  4.90\n|   |   |   |   |--- value: [4.18]\n|   |--- numeric__historical_events >  4.50\n|   |   |--- numeric__previous_Downtime_Hours <= 4.62\n|   |   |   |--- numeric__historical_events <= 9.50\n|   |   |   |   |--- value: [3.74]\n|   |   |   |--- numeric__historical_events >  9.50\n|   |   |   |   |--- value: [4.30]\n|   |   |--- numeric__previous_Downtime_Hours >  4.62\n|   |   |   |--- numeric__previous_Downtime_Hours <= 5.49\n|   |   |   |   |--- value: [4.52]\n|   |   |   |--- numeric__previous_Downtime_Hours >  5.49\n|   |   |   |   |--- value: [5.25]\n",
+  "leaf_support": [
+    {
+      "node": 4,
+      "training_records": 1120,
+      "prediction": 1.092705357142856
+    },
+    {
+      "node": 5,
+      "training_records": 807,
+      "prediction": 1.355910780669144
+    },
+    {
+      "node": 7,
+      "training_records": 1638,
+      "prediction": 1.5935470085470067
+    },
+    {
+      "node": 8,
+      "training_records": 447,
+      "prediction": 1.8351230425055922
+    },
+    {
+      "node": 11,
+      "training_records": 1394,
+      "prediction": 1.9904232424677182
+    },
+    {
+      "node": 12,
+      "training_records": 957,
+      "prediction": 2.273500522466037
+    },
+    {
+      "node": 13,
+      "training_records": 106,
+      "prediction": 3.382452830188679
+    },
+    {
+      "node": 17,
+      "training_records": 315,
+      "prediction": 3.0788253968253976
+    },
+    {
+      "node": 18,
+      "training_records": 829,
+      "prediction": 2.6242702050663467
+    },
+    {
+      "node": 20,
+      "training_records": 188,
+      "prediction": 3.4451595744680854
+    },
+    {
+      "node": 21,
+      "training_records": 89,
+      "prediction": 4.180786516853931
+    },
+    {
+      "node": 24,
+      "training_records": 361,
+      "prediction": 3.7449030470914138
+    },
+    {
+      "node": 25,
+      "training_records": 150,
+      "prediction": 4.304199999999999
+    },
+    {
+      "node": 27,
+      "training_records": 169,
+      "prediction": 4.522426035502959
+    },
+    {
+      "node": 28,
+      "training_records": 114,
+      "prediction": 5.253508771929827
+    }
+  ],
+  "ranges": {
+    "previous_Downtime_Hours": [
+      0.0,
+      9.08
+    ],
+    "previous_Production_Volume": [
+      264.0,
+      2434.0
+    ],
+    "previous_Failure_Count": [
+      0.0,
+      3.0
+    ],
+    "historical_events": [
+      0.0,
+      12.0
+    ],
+    "days_since_maintenance": [
+      0.0,
+      109.0
+    ]
+  },
+  "categories": [
+    "CNC",
+    "Conveyor",
+    "Hydraulic_Press",
+    "Injection_Molding",
+    "Packaging"
+  ],
+  "version": 1,
+  "complexity": "Fixed depth 4; minimum leaf max(5, 1% of training records); no test-set tuning.",
+  "limitations": "Predictive associations, not causes or engineering limits. Same-period explanatory inputs may reflect downtime. Full dataset used regardless of filters.",
+  "train_machines": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M014",
+    "M015",
+    "M016",
+    "M017",
+    "M018",
+    "M019",
+    "M020",
+    "M021",
+    "M022",
+    "M023",
+    "M024",
+    "M025",
+    "M026",
+    "M027",
+    "M028",
+    "M029",
+    "M030"
+  ],
+  "test_machines": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M014",
+    "M015",
+    "M016",
+    "M017",
+    "M018",
+    "M019",
+    "M020",
+    "M021",
+    "M022",
+    "M023",
+    "M024",
+    "M025",
+    "M026",
+    "M027",
+    "M028",
+    "M029",
+    "M030"
+  ],
+  "rules": [
+    {
+      "conditions": "numeric__previous_Downtime_Hours <= 2.785 AND numeric__previous_Downtime_Hours <= 1.755 AND numeric__previous_Downtime_Hours > 1.145 AND numeric__days_since_maintenance <= 55.500",
+      "estimated_hours": 1.5935470085470067,
+      "training_support": 1638
+    },
+    {
+      "conditions": "numeric__previous_Downtime_Hours <= 2.785 AND numeric__previous_Downtime_Hours > 1.755 AND numeric__historical_events <= 4.500 AND numeric__previous_Downtime_Hours <= 2.275",
+      "estimated_hours": 1.9904232424677182,
+      "training_support": 1394
+    },
+    {
+      "conditions": "numeric__previous_Downtime_Hours <= 2.785 AND numeric__previous_Downtime_Hours <= 1.755 AND numeric__previous_Downtime_Hours <= 1.145 AND numeric__previous_Downtime_Hours <= 0.895",
+      "estimated_hours": 1.092705357142856,
+      "training_support": 1120
+    },
+    {
+      "conditions": "numeric__previous_Downtime_Hours <= 2.785 AND numeric__previous_Downtime_Hours > 1.755 AND numeric__historical_events <= 4.500 AND numeric__previous_Downtime_Hours > 2.275",
+      "estimated_hours": 2.273500522466037,
+      "training_support": 957
+    },
+    {
+      "conditions": "numeric__previous_Downtime_Hours > 2.785 AND numeric__historical_events <= 4.500 AND numeric__previous_Downtime_Hours <= 4.075 AND numeric__days_since_maintenance > 22.500",
+      "estimated_hours": 2.6242702050663467,
+      "training_support": 829
+    }
+  ],
+  "persistence_baseline": {
+    "mae": 0.77538496791934,
+    "rmse": 1.0088752120061975,
+    "r2": 0.5324684533728575
+  },
+  "train_last_target": "2025-10-19 00:00:00",
+  "test_first_target": "2025-10-20 00:00:00"
+}

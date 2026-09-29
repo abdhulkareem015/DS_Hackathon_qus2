@@ -1,0 +1,11 @@
+.venv/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+backend/data/projects/
+*.log
+.env
+artifacts/edge-profile/
+artifacts/rendered.html
+.publish-repo/
